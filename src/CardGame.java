@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Random;
 
 public class CardGame {
     public String name;
@@ -8,9 +9,11 @@ public class CardGame {
     public String symbol;
     public int value;
     public ArrayList<Card> cards = new ArrayList<>();
+    public ArrayList<Card> deckOfCards = new ArrayList<>();
     public String[] suits = {"♣", "♦", "♥", "♠"};
     public String[] symbols = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
     public int[] values = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
+    static int cardIndex;
 
     // constructor
     public CardGame(String name) {
@@ -59,11 +62,14 @@ public class CardGame {
         return cards;
     }
 
+    public ArrayList<Card> shuffleDeck(){
+        Collections.shuffle(cards, new Random());
+        return deckOfCards = cards;
+    }
 
-
-//    public Card dealCard() {
-//
-//    }
+    public Card dealCard() {
+        return deckOfCards.get(cardIndex++);
+    }
 
 
 

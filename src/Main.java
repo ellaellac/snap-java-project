@@ -1,11 +1,12 @@
 public class Main {
     public static void main(String[] args) {
         CardGame cardGame = new CardGame("Snap");
-        System.out.println(cardGame.getDeck());
-        System.out.println(cardGame.sortDeckInNumberOrder());
-        System.out.println(cardGame.sortDeckIntoSuits());
+        System.out.println(cardGame.cards);
+        cardGame.shuffleDeck();
+        System.out.println(cardGame.deckOfCards);
+        System.out.println(cardGame.dealCard());
+        System.out.println(cardGame.dealCard());
+        System.out.println(cardGame.dealCard());
     }
-
-
 
 }
