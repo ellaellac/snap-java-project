@@ -5,14 +5,14 @@ import java.util.Random;
 
 public class CardGame {
     public String name;
-    public String suit;
-    public String symbol;
-    public int value;
-    public ArrayList<Card> cards = new ArrayList<>();
-    public ArrayList<Card> deckOfCards = new ArrayList<>();
-    public String[] suits = {"♣", "♦", "♥", "♠"};
-    public String[] symbols = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
-    public int[] values = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
+    private String suit;
+    private String symbol;
+    private int value;
+    private ArrayList<Card> cards = new ArrayList<>();
+    private ArrayList<Card> deckOfCards = new ArrayList<>();
+    private String[] suits = {"♣", "♦", "♥", "♠"};
+    private String[] symbols = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+    private int[] values = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
     static int cardIndex;
 
     // constructor
@@ -29,7 +29,6 @@ public class CardGame {
     }
 
     //Getter and Setter
-
     public String getName() {
         return name;
     }
@@ -150,11 +149,13 @@ public class CardGame {
     }
 
     public Card dealCard() {
+        Card card = deckOfCards.get(cardIndex++);
+
         if (cardIndex == 52) {
             setCardIndex(0);
             shuffleDeck();
         }
-        return deckOfCards.get(cardIndex++);
-    }
 
+        return card;
+    }
 }

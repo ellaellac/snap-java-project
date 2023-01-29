@@ -12,32 +12,6 @@ public class Card {
         this.value = value;
     }
 
-
-//Get and Set
-    public String getUnit() {
-        return suit;
-    }
-
-    public void setUnit(String unit) {
-        this.suit = unit;
-    }
-
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
     //toString
     @Override
     public String toString() {
