@@ -35,13 +35,10 @@ public class Snap extends CardGame {
     }
 
     //Method
-    public void userInput() {
-        String userInput = scanner.nextLine().toLowerCase();
-        setUserInput(userInput);
-    }
-
     public void checkUserInputInTwoSeconds(){
         timer.schedule(checkUserInput, 2000);
+        String userInput = scanner.nextLine().toLowerCase();
+        setUserInput(userInput);
     }
 
 
@@ -62,9 +59,7 @@ public class Snap extends CardGame {
                 dealCard();
             } else if (snapCards.stream().anyMatch(element -> element.symbol.equals(card.symbol))) {
                 System.out.println(card);
-                System.out.println("hello");
                 checkUserInputInTwoSeconds();
-                userInput();
                 break;
             } else if (cardIndex == 52) {
                 setCardIndex(0);
