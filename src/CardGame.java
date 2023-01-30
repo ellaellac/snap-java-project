@@ -29,13 +29,6 @@ public class CardGame {
     }
 
     //Getter and Setter
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getSuit() {
         return suit;

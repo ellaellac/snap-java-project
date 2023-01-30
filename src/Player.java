@@ -5,7 +5,6 @@ public class Player {
 
     static String input;
 
-    static String snapInput;
 
     public static String getInput() {
         return input;
@@ -15,21 +14,15 @@ public class Player {
         Player.input = input;
     }
 
-    public static String getSnapInput() {
-        return snapInput;
-    }
-
-    public static void setSnapInput(String snapInput) {
-        Player.snapInput = snapInput;
-    }
 
     static void playerMove() {
         input = scanner.nextLine();
+        System.out.println("Your turn");
     }
 
     static void computerMove() {
-        input = "";
+        input = scanner.nextLine();
+        System.out.println("Computer");
     }
-
 
 }
