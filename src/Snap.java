@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class Snap extends CardGame {
-    Scanner scanner = new Scanner(System.in);
 
     public ArrayList<Card> snapCards = new ArrayList<>();
 
@@ -12,7 +11,6 @@ public class Snap extends CardGame {
 
     //Getter and Setter
 
-
     public ArrayList<Card> getSnapCards() {
         return snapCards;
     }
@@ -21,26 +19,46 @@ public class Snap extends CardGame {
         this.snapCards = snapCards;
     }
 
+
     //Method
-    public void runSnap() {
-        shuffleDeck();
-        System.out.println(shuffleDeck());
+    @Override
+    public void dealCard() {
+        System.out.println("Please press Enter to play.");
         while (true) {
-            Card card = getDeckOfCards().get(cardIndex++);
-            System.out.println("Please press Enter to play.");
-            String enter = scanner.nextLine();
-            if (!enter.equals("")) {
-                runSnap();
-            } else if (snapCards.stream().anyMatch(element -> element.symbol.equals(card.symbol))) {
-                System.out.println(card);
-                System.out.println("Win");
-                break;
+            Card card = getDeckOfCards().get(cardIndex);
+            System.out.println("");
+//            System.out.println("CardIndex " + cardIndex);
+
+            if (cardIndex % 2 != 0) {
+                System.out.println("Computer");
+                Player.computerMove();
+            } else {
+                System.out.println("Your turn");
+                Player.playerMove();
             }
-            snapCards.add(card);
+
+            if (!Player.getInput().equals("")) {
+                dealCard();
+            } else if (cardIndex % 2 != 0 && snapCards.stream().anyMatch(element -> element.symbol.equals(card.symbol))) {
+                System.out.println(card);
+                System.out.println("You lose");
+                break;
+            } else if (cardIndex % 2 == 0 && snapCards.stream().anyMatch(element -> element.symbol.equals(card.symbol))) {
+                System.out.println(card);
+                System.out.println("You win");
+                break;
+            } else if (cardIndex == 52) {
+                setCardIndex(0);
+                shuffleDeck();
+            }
+
+            snapCards.add(getDeckOfCards().get(cardIndex++));
             System.out.println(card);
-            System.out.println(snapCards);
+//            System.out.println(snapCards);
         }
     }
+
+
 }
 
 

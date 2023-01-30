@@ -148,7 +148,7 @@ public class CardGame {
         return deckOfCards = cards;
     }
 
-    public Card dealCard() {
+    public void dealCard() {
         Card card = deckOfCards.get(cardIndex++);
 
         if (cardIndex == 52) {
@@ -156,6 +156,6 @@ public class CardGame {
             shuffleDeck();
         }
 
-        return card;
+        System.out.println(card);
     }
 }
