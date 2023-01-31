@@ -16,7 +16,9 @@ public class Snap extends CardGame {
             } else {
                 System.out.println("You lost. Play Again.");
             }
+            System.exit(0);
         }
+
     };
 
     //Constructor
@@ -44,7 +46,7 @@ public class Snap extends CardGame {
 
     @Override
     public void dealCard() {
-        System.out.println("Please press Enter to play.");
+        System.out.println("Please press Enter to play SNAP.");
         while (true) {
             Card card = getDeckOfCards().get(cardIndex);
             System.out.println("");
@@ -69,12 +71,10 @@ public class Snap extends CardGame {
             System.out.println(card);
         }
     }
-
     public void runSnap() {
         shuffleDeck();
         dealCard();
     }
-
 
 }
 
