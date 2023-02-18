@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class Player {
-    static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
-    static String input;
+    private static String input;
 
-
+    //Getter and Setter
     public static String getInput() {
         return input;
     }
@@ -14,13 +14,13 @@ public class Player {
         Player.input = input;
     }
 
-
-    static void playerMove() {
+    //Methods
+    public static void playerMove() {
         input = scanner.nextLine();
         System.out.println("Your turn");
     }
 
-    static void computerMove() {
+    public static void computerMove() {
         input = scanner.nextLine();
         System.out.println("Computer");
     }

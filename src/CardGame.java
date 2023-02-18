@@ -105,9 +105,9 @@ public class CardGame {
     //comparator
     class ValueComparator implements Comparator<Card> {
         public int compare(Card card1, Card card2) {
-            if (card1.value == card2.value) {
+            if (card1. getValue() == card2. getValue()) {
                 return 0;
-            } else if (card1.value > card2.value) {
+            } else if (card1.getValue() > card2.getValue()) {
                 return 1;
             } else {
                 return -1;
@@ -117,7 +117,7 @@ public class CardGame {
 
     class SuitComparator implements Comparator<Card> {
         public int compare(Card card1, Card card2) {
-            return card1.suit.compareTo(card2.suit);
+            return card1.getSuit().compareTo(card2.getSuit());
         }
     }
 

@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Snap extends CardGame {
     public Scanner scanner = new Scanner(System.in);
-    public ArrayList<Card> snapCards = new ArrayList<>();
+    private ArrayList<Card> snapCards = new ArrayList<>();
 
     private String userInput = "";
 
@@ -26,7 +26,16 @@ public class Snap extends CardGame {
         super(name);
     }
 
-    //
+    //Getter and Setter
+
+
+    public ArrayList<Card> getSnapCards() {
+        return snapCards;
+    }
+
+    public void setSnapCards(ArrayList<Card> snapCards) {
+        this.snapCards = snapCards;
+    }
 
     public String getUserInput() {
         return userInput;
@@ -59,7 +68,7 @@ public class Snap extends CardGame {
 
             if (!Player.getInput().equals("")) {
                 dealCard();
-            } else if (snapCards.stream().anyMatch(element -> element.symbol.equals(card.symbol))) {
+            } else if (snapCards.stream().anyMatch(element -> element.getSymbol().equals(card.getSymbol()))) {
                 System.out.println(card);
                 checkUserInputInTwoSeconds();
                 break;
